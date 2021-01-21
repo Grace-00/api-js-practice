@@ -1,11 +1,11 @@
 // reference elements I'll use in the project
 const url = "https://restcountries.eu/rest/v2/all";
 const template = document.getElementById("template");
-const cardContainer = document.getElementById("card__container");
+const cardContainer = document.querySelector(".card__container");
 const card = document.querySelector(".card");
 const btn = document.getElementById("btn");
-const input = document.getElementById("input");
-const select = document.getElementById("select");
+const input = document.getElementById("searchForCountry");
+const select = document.getElementById("filterRegion");
 
 // reference modal elements
 const modal = document.querySelector(".modal");

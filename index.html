@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <title>FE Mentor Challenge - REST Countries API</title>
+        <script src="index.js" defer></script>
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header__content">
+                <h1>Where in the world?</h1>
+            </div>
+            <button id="btn" class="btn">
+                <p><i class="fas fa-moon"></i>Dark Mode</p>
+            </button>
+        </header>
+
+        <!-- FORMS -->
+        <section class="form">
+            <form class="form__search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for..." id="input"></input>
+            </form>
+
+            <form class="form__filter">
+                <select name="Filter by Region" id="select">
+                    <option value="">Filter by Region</option>
+                    <option value="Africa" id="africa">Africa</option>
+                    <option value="America" id="america">America</option>
+                    <option value="Asia" id="asia">Asia</option>
+                    <option value="Europe" id="europe">Europe</option>
+                    <option value="Oceania" id="oceania">Oceania</option>
+                </select>
+            </form>
+        </section>
+
+        <!-- MODAL -->
+        <div class="modal">
+            <div class="modal__header">
+                <div class="modal__header-inner">
+                    <img src="" alt="Flag" class="modal__img">
+                </div>
+                <div class="modal__content">
+                    <div class="modal__content-1">
+                        <h1 class="countryName"></h1>
+                        <p class="nativeName"></p>
+                        <p class="population"></p>
+                        <p class="region"></p>
+                        <p class="subregion"></p>
+                        <p class="capital"></p>
+                        <p class="topLevelDomain"></p>
+                        <p class="currencies"></p>
+                        <p class="languages"></p>
+                    </div>
+                    <div class="modal__content-2">
+                        <p class="borderCountries"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SINGLE CARD TEMPLATE -->
+        <template id="template">
+            <div id="card" class="card">
+                <div id="card__img">
+                    <img src="" alt="Flag">
+                </div>
+                <div id="card__content" class="card__content">
+                    <p class="country"></p>
+                    <p class="population"></p>
+                    <p class="region"></p>
+                    <p class="capital"></p>
+                </div>
+            </div>
+        </template>
+
+        <!-- CARD CONTAINER -->
+        <div id="card__container" class="card__container">
+        </div>
+    </body>
+
+</html>

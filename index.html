@@ -28,10 +28,13 @@
         <section class="form">
             <form class="form__search">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search for..." id="input"></input>
+                <label for="Search for country"></label>
+                <input type="text" placeholder="Search for..." name="country" id="input"></input>
+
             </form>
 
             <form class="form__filter">
+                <label for="filterRegion"></label>
                 <select name="Filter by Region" id="select">
                     <option value="">Filter by Region</option>
                     <option value="Africa" id="africa">Africa</option>
@@ -40,6 +43,7 @@
                     <option value="Europe" id="europe">Europe</option>
                     <option value="Oceania" id="oceania">Oceania</option>
                 </select>
+
             </form>
         </section>
 
@@ -47,7 +51,7 @@
         <div class="modal">
             <div class="modal__header">
                 <div class="modal__header-inner">
-                    <img src="" alt="Flag" class="modal__img">
+                    <img src="#" alt="Flag" class="modal__img">
                 </div>
                 <div class="modal__content">
                     <div class="modal__content-1">
@@ -70,11 +74,11 @@
 
         <!-- SINGLE CARD TEMPLATE -->
         <template id="template">
-            <div id="card" class="card">
+            <div class="card">
                 <div id="card__img">
-                    <img src="" alt="Flag">
+                    <img src="#" alt="Flag">
                 </div>
-                <div id="card__content" class="card__content">
+                <div class="card__content">
                     <p class="country"></p>
                     <p class="population"></p>
                     <p class="region"></p>

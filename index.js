@@ -1,5 +1,5 @@
 // reference elements I'll use in the project
-const url = "https://restcountries.eu/rest/v2/all";
+const url = "https://restcountries.com/v3.1/all";
 const template = document.getElementById("template");
 const cardContainer = document.querySelector(".card__container");
 const card = document.querySelector(".card");
@@ -18,15 +18,18 @@ let countries = [];
 
 // open modal if country name found on card === country name found in API and if matches show and populate the modal
 cardContainer.addEventListener("click", (e) => {
+  console.log(e)
   console.log(e.composedPath()[2]);
   let nameCountry = e.composedPath()[2].children[1].children[0].textContent;
+  console.log(nameCountry)
   const openModal = () => {
     countries.map((country) => {
-      if (nameCountry === country.name) {
+
+      if (nameCountry === country.name.common) {
         modal.classList.add("visible");
         modalContent.style.display = "block";
-        modal.querySelector("img").setAttribute("src", country.flag);
-        modal.querySelector(".countryName").textContent = `${country.name}`;
+        modal.querySelector("img").setAttribute("src", country.flags.png);
+        modal.querySelector(".countryName").textContent = `${country.name.common}`;
         modal.querySelector(".nativeName").textContent = country.nativeName
           ? `Native Name: ${country.nativeName}`
           : "";
@@ -44,17 +47,17 @@ cardContainer.addEventListener("click", (e) => {
           : "";
         modal.querySelector(
           ".topLevelDomain"
-        ).textContent = country.topLevelDomain
-          ? `Top Level Domain: ${country.topLevelDomain}`
+        ).textContent = country.tld
+          ? `Top Level Domain: ${country.tld}`
           : "";
-        modal.querySelector(".currencies").textContent = country.currencies[0]
-          ? `Currency: ${country.currencies[0].name}`
+        modal.querySelector(".currencies").textContent = country.currencies
+          ? `Currency: ${Object.entries(country.currencies).map(el=>el[1].name).join(', ')}`
           : "";
         modal.querySelector(".languages").textContent = country.languages
-          ? `Languages: ${country.languages.map((language) => language.name)}`
+          ? `Languages: ${Object.values(country.languages).join(', ')}`
           : "";
-        modal.querySelector(".borderCountries").textContent = country.borders[0]
-          ? `Borders: ${country.borders}`
+        modal.querySelector(".borderCountries").textContent = country.borders
+          ? `Borders: ${country.borders.map(border => border)}`
           : "";
       }
     });
@@ -109,14 +112,14 @@ fetch(url)
   .then((res) => res.json()) //get response and turn it into JSON
   .then((json) => {
     //get JSON
-    // console.log(json);
+     console.log(json);
     countries = json; //save JSON in array
 
     countries.map((country) => {
       //map the array and populate the template
       const cardCountry = document.importNode(template.content, true);
 
-      cardCountry.querySelector(".country").textContent = country.name;
+      cardCountry.querySelector(".country").textContent = country.name.common;
 
       cardCountry.querySelector(".population").textContent = country.population
         ? `population: ${country.population}`
@@ -128,7 +131,7 @@ fetch(url)
         ? `capital: ${country.capital}`
         : "";
 
-      cardCountry.querySelector("img").setAttribute("src", country.flag);
+      cardCountry.querySelector("img").setAttribute("src", country.flags.png);
 
       return cardContainer.appendChild(cardCountry); //append the populated card to the card__cointainer
     });

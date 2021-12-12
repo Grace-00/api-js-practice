@@ -9,7 +9,8 @@
 
 # Frontend Mentor - REST Countries API with color theme switcher
 
-![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
+<img width="1437" alt="Schermata 2021-12-12 alle 22 32 28" src="https://user-images.githubusercontent.com/30959973/145730374-c9e76e54-a18e-4e0f-a792-b9654ef67379.png">
+
 
 ## Welcome! 👋
 
